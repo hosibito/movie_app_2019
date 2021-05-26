@@ -7,10 +7,15 @@ class App extends React.Component{
   };
 
   add = () => {
-    console.log("더하기")
+    //this.state.count = 1;   // 이렇게 변경이 안된다. 또한  render 하지 않아 화면에 반영이 안된다. 
+      // Line 10:5:  Do not mutate state directly. Use setState()  react/no-direct-mutation-state 경고뜬다.
+    // this.setState({ count: this.state.count + 1 })  이렇게 사용하면 좋지 못하다. 
+    this.setState( current => ( { count: current.count + 1 } ) )  // setState 에서 현제 스테더스값을 제공한다. 
+  
   };
   minus = () => {
-    console.log("빼기")
+    //this.setState({ count: this.state.count - 1})
+    this.setState( current => ( { count: current.count - 1 } ) )
   };
 
 
