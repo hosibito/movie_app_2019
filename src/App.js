@@ -1,7 +1,12 @@
 import React from 'react';
-import PropTypes from "prop-types";
+
 
 class App extends React.Component{
+  constructor(props){
+    super(props);
+    console.log("constructor!!  ( 1 )");
+  }
+
   state ={
     count:0
   };
@@ -18,8 +23,20 @@ class App extends React.Component{
     this.setState( current => ( { count: current.count - 1 } ) )
   };
 
+  componentDidMount(){
+    console.log("componentDidMount!! ( 3 )")
+  }
+
+  componentDidUpdate(){
+    console.log("componentDidUpdate!! 더하기 뺴기 눌렀을때!! ")
+  }
+
+  componentWillUnmount(){
+    console.log("componentWillUnmount 닫거나 다른창으로 갈때!! ")
+  }
 
   render(){
+    console.log("render!  ( 2 )")
     return( 
     <div>
       <h1>클래스 컴포넌트 스테이트 숫자 : {this.state.count}</h1>
