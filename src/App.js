@@ -1,5 +1,6 @@
-import React from 'react';
+import React from "react";
 import axios from "axios";
+import Movie from "./Movie";
 class App extends React.Component{
   state = {
     isLoading: true,
@@ -7,7 +8,12 @@ class App extends React.Component{
   }
 
   getMovies = async () => {
-    const movies = await axios.get("https://yts.mx/api/v2/list_movies.json");
+    // const movies = await axios.get("https://yts.mx/api/v2/list_movies.json");
+    // console.log(movies.data.data.movies);
+    const {data : { data : { movies } } } = await axios.get("https://yts.mx/api/v2/list_movies.json?sort_by=rating");
+    //console.log(movies);
+    //this.setState({mivies: movies});
+    this.setState({ movies, isLoading: false });   
   }
 
   componentDidMount() {
@@ -19,10 +25,22 @@ class App extends React.Component{
   }
 
   render(){  
-    const { isLoading } = this.state;
+    const { isLoading, movies } = this.state;    
     return( 
     <div>
-      { isLoading ? "로딩중..." : "준비가 완료되었습니다." }
+      { isLoading 
+        ? "로딩중..." 
+        : movies.map(movie => (          
+          <Movie 
+            key={movie.id} 
+            id={movie.id} 
+            year={movie.year} 
+            title={movie.title} 
+            summary={movie.summary} 
+            poster={movie.medium_cover_image}
+          />      
+          ) ) 
+      }
     </div>
     );
   }
