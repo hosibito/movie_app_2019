@@ -1,0 +1,54 @@
+.movie {
+  margin: 40px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+  padding: 50px 20px;
+  width: 700px;
+  display: flex;
+}
+
+.movie .movie__poster {
+  width: 200px;
+  height: 200px;
+
+  position: relative;
+}
+
+.movie .movie__poster img {
+  width: 150px;
+  height: 100;
+  object-fit: cover;
+  position: absolute;
+  bottom: 50px;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+.movie .movie__data {
+  color: rgba(0, 0, 0, 0.4);
+  width: 700px;
+  margin-left: 20px;
+}
+
+.movie .movie__data .movie__title {
+  font-size: 25px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.movie .movie__data .movie__year {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.movie .movie__data ul {
+  margin-left: 40px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.movie .movie__data .movie__geners .movie__geners-gener {
+  margin-left: 10px;
+}
