@@ -46,9 +46,9 @@
 .movie .movie__data ul {
   margin-left: 40px;
   margin-bottom: 20px;
-  list-style-type: circle;
+  display: flex;
 }
 
 .movie .movie__data .movie__geners .movie__geners-gener {
-  margin-bottom: 5px;
+  margin-left: 10px;
 }
