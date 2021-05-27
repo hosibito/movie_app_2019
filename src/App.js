@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Movie from "./Movie";
+import "./App.css";
 class App extends React.Component{
   state = {
     isLoading: true,
@@ -27,21 +28,27 @@ class App extends React.Component{
   render(){  
     const { isLoading, movies } = this.state;    
     return( 
-    <div>
-      { isLoading 
-        ? "로딩중..." 
-        : movies.map(movie => (          
-          <Movie 
-            key={movie.id} 
-            id={movie.id} 
-            year={movie.year} 
-            title={movie.title} 
-            summary={movie.summary} 
-            poster={movie.medium_cover_image}
-          />      
-          ) ) 
-      }
-    </div>
+      <div className="container">
+        { isLoading 
+          ? (
+            <div className="loader"> 
+              <span className="loader__text">로딩중....</span>
+            </div>
+          ) : movies.map ( movie => (  
+            <div className="movies">        
+              <Movie 
+                id={movie.id}  
+                key={movie.id}                 
+                year={movie.year} 
+                title={movie.title} 
+                summary={movie.summary} 
+                poster={movie.medium_cover_image}
+                genres={movie.genres}
+              />  
+            </div>    
+          )) 
+        }
+      </div>
     );
   }
 }
